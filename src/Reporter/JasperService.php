@@ -15,16 +15,15 @@ use Simplisti\Lib\JasperStarter\Reporter;
 
 class JasperService
 {
-    //public function __construct(string $env, Reporter $reporter, array $templatePaths)
-    public function __construct(string $env, array $templatePaths = [])
+    // https://symfony.com/doc/current/configuration.html#accessing-configuration-parameters
+    public function __construct(string $env, string $binaryPath, array $templatePaths)
     {
-        // TODO: Pass in from config parameter (which is determined at composer install hook)
-        $this->reporter = new Reporter('/opt/jasperstarter/bin/jasperstarter');
+        $this->reporter = new Reporter($binaryPath);
 
         if ('dev' === $env) {
             // TODO: Compile all templates under all registered template paths
-
         }
+
     }
 
     public function report (string $sourceFile, array $parameters = [])
