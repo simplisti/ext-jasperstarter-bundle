@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <defaults public="true" />
+
+        <service id="Simplisti\Bundle\JasperBundle\Reporter\JasperService" public="true">
+            <argument key="$env" type="string">%kernel.environment%</argument>
+        </service>
+
+        <service id="jasper.reporter.database" alias="Simplisti\Bundle\JasperBundle\Reporter\JasperService" public="true" />
+        <!--<service id="jasper.reporter.generic" alias="Simplisti\Bundle\JasperBundle\Reporter\JasperService" public="true" />-->
+    </services>
+</container>
